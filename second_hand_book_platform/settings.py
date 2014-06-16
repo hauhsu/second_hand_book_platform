@@ -59,7 +59,7 @@ WSGI_APPLICATION = 'second_hand_book_platform.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'books.db'),
     }
 }
 
@@ -81,3 +81,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Template 
+BASIC_TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+
+TEMPLATE_DIRS = (
+    BASIC_TEMPLATE_DIR,
+)
