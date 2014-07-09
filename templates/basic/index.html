@@ -1,23 +1,20 @@
-<!DOCTYPE html>
-<html>
+{% extends 'basic/base.html' %}
 
-    <head>
-        <title>Rango</title>
-    </head>
+{% block title %}index{% endblock %}
 
-    <body>
-        <h1>Rango says...</h1>
-        hello! <strong>{{ msg }}</strong><br/>
-        {% if newest_books %}
-        <ul>
-            {% for book in newest_books %}
-            <li>{{ book.name }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
+{% block body_block %}
+	<h1>Hello!!</h1>
+	{% if user.is_authenticated %}
+	<strong>{{ msg }} {{ user.username}}!</strong><br/>
+	{% else %}
+	<strong>{{ msg }} </strong><br/>
+	{% endif %}
 
-        <a href="/basic/register/">Register</a><br/>
-    </body>
-
-</html>
-
+	{% if newest_books %}
+	<ul>
+		{% for book in newest_books %}
+		<li>{{ book.name }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+{% endblock %}
